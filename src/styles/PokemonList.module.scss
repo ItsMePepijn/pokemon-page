@@ -1,0 +1,31 @@
+@use 'vars';
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 50px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: vars.$bg-secondary;
+  color: lightgray;
+
+  .pokemon{
+    flex-basis: calc(20% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: vars.$bg-tertiary;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    &__label{
+      font-size: 20px;
+    }
+  }
+}

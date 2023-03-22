@@ -1,0 +1,24 @@
+@use 'vars';
+
+.container{
+  position: fixed;
+  bottom: -100px;
+  right: 40px;
+  background-color: vars.$accent-primary;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in-out 300ms;
+
+  &:hover{
+    transform: scale(1.15);
+  }
+
+  &.active{
+    bottom: 40px;
+  }
+}
