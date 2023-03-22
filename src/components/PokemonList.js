@@ -11,7 +11,8 @@ export default function PokemonList({offset}) {
     if(pokemon.length <= offset){
       (async () => {
         const data = await getPokemon(offset);
-        await setPokemon([...pokemon, ...data]);
+        if(!data) return console.error("Error fetching data");
+        setPokemon(pokemon.concat(data));
       })();
     }
   }, [offset]);
