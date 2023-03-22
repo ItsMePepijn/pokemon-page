@@ -1,13 +1,15 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import { useState, useEffect } from 'react'
+import getPokemon from '@/modules/getPokemon'
 
 import Navbar from '@/components/Navbar'
 import PokemonList from '@/components/PokemonList'
 import ToTop from '@/components/ToTop'
 
 export default function Home() {
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(40);
+  const [pokemon, setPokemon] = useState([]);
   const [shouldScroll, setShouldScroll] = useState(false);
 
   function onScroll(event) {
@@ -18,6 +20,14 @@ export default function Home() {
     if(yOffset < 200) setOffset(offset + 30);
   }
   
+  useEffect(() => {
+    (async () => {
+      const data = await getPokemon();
+      if(!data) return console.error("Error fetching data");
+      setPokemon(data);
+    })();
+  }, []);
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -39,7 +49,7 @@ export default function Home() {
       <Navbar />
 
       <main className={styles.main}>
-        <PokemonList offset={offset} />
+        <PokemonList limit={offset} pokemon={pokemon} />
       </main>
     </>
   )
