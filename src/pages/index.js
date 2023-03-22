@@ -11,11 +11,10 @@ export default function Home() {
   const [shouldScroll, setShouldScroll] = useState(false);
 
   function onScroll(event) {
-    let yOffset = event.target.body.clientHeight - window.innerHeight - window.scrollY;
-    
     if((window.innerHeight - window.scrollY - 500) * -1 > 1) setShouldScroll(true);
     else setShouldScroll(false);
     
+    let yOffset = event.target.body.clientHeight - window.innerHeight - window.scrollY;
     if(yOffset < 200) setOffset(offset + 30);
   }
   
