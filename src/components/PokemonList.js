@@ -21,7 +21,7 @@ export default function PokemonList({offset}) {
     <div className={styles.container}>
       {pokemon.map((pokemon) => (
         <div className={styles.pokemon} key={pokemon.name}>
-          <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getIdFromUrl(pokemon.url)}.png`} width={100} height={100} alt={pokemon.name}></Image>
+          <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${getIdFromUrl(pokemon.url)}.png`} width={100} height={100} alt={pokemon.name}></Image>
           <p className={styles.pokemon__label}><b>{getIdFromUrl(pokemon.url)}.</b> {pokemon.name}</p>
         </div>
       ))}
