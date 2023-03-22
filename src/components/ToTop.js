@@ -14,7 +14,7 @@ export default function ToTop({shouldScroll}){
   
   return(
     <div className={styles.container + active} onClick={scrollToTop}>
-      <Image src="/arrow_up.png" alt="To Top" width={60} height={60}></Image>
+      <Image src="/arrow_up.png" alt="To Top" width={60} height={60} draggable={false}></Image>
     </div>
-  );
+  )
 }
